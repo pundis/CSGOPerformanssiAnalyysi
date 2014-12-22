@@ -1,12 +1,15 @@
-package testit;
-
-import csgoPerformanssiAnalyysi.logiikka.Kartta;
-import csgoPerformanssiAnalyysi.logiikka.PelattuKartta;
-import csgoPerformanssiAnalyysi.logiikka.Profiili;
-import static org.junit.Assert.assertEquals;
+import csgoperformanssianalyysi.logiikka.Kartta;
+import csgoperformanssianalyysi.logiikka.PelattuKartta;
+import csgoperformanssianalyysi.logiikka.Profiili;
+import java.util.ArrayList;
+import java.util.HashMap;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class ProfiiliTest {
+    
+    public ProfiiliTest() {
+    }
     
     public Profiili luoProfiiliJa5PelattuaKarttaa() {
         Profiili profiili = new Profiili("Arttu");
@@ -17,6 +20,7 @@ public class ProfiiliTest {
         profiili.lisaaKartta(new PelattuKartta(Kartta.cache, 16, 14, 16, 11));
         return profiili;
     }
+    
     
     @Test
     public void kaikkienKarttaListassaOikeaMaaraPelattjaKarttoja() {
@@ -36,5 +40,28 @@ public class ProfiiliTest {
         assertEquals(profiili.getKartatMapissa().get(Kartta.cache).size(), 3);
     }
     
+    @Test
+    public void oikeaMaaraDust2Peleja() {
+        Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
+        assertEquals(profiili.getKartatMapissa().get(Kartta.dust2).size(), 1);
+    }
     
+    @Test
+    public void karttaKohtaisessaMapissaOikeaMaaraAvaimia() {
+        Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
+        HashMap<Kartta, ArrayList<PelattuKartta>> asd = profiili.getKartatMapissa();
+        int i = 0;
+        for (Kartta kartta : asd.keySet()) {
+            i++;
+        }
+        assertEquals(3, i);
+    }
+    
+    @Test
+    public void getNimiToimii() {
+        Profiili profiili = new Profiili("Arttu");
+        assertEquals(profiili.getNimi(), "Arttu");
+    }
+  
+  
 }

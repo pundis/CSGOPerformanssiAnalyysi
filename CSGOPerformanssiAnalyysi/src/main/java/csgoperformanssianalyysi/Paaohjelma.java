@@ -1,10 +1,10 @@
 
-package csgoPerformanssiAnalyysi;
+package csoperformanssianalyysi;
 
-import csgoPerformanssiAnalyysi.logiikka.PelattuKartta;
-import csgoPerformanssiAnalyysi.logiikka.Kartta;
-import csgoPerformanssiAnalyysi.logiikka.Profiili;
-import csgoPerformanssiAnalyysi.logiikka.ProfiiliAnalyysi;
+import csgoperformanssianalyysi.logiikka.PelattuKartta;
+import csgoperformanssianalyysi.logiikka.Kartta;
+import csgoperformanssianalyysi.logiikka.Profiili;
+import csgoperformanssianalyysi.logiikka.ProfiiliAnalyysi;
 
 public class Paaohjelma {
 

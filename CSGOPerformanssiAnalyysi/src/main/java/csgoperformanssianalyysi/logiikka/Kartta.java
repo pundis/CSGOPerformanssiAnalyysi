@@ -1,6 +1,6 @@
 
 
-package csgoPerformanssiAnalyysi.logiikka;
+package csgoperformanssianalyysi.logiikka;
 
 
 public enum Kartta {

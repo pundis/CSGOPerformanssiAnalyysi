@@ -1,5 +1,5 @@
 
-package csgoPerformanssiAnalyysi.logiikka;
+package csgoperformanssianalyysi.logiikka;
 
 import java.util.ArrayList;
 

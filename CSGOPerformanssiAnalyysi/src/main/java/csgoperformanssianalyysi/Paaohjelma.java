@@ -1,5 +1,4 @@
-
-package csoperformanssianalyysi;
+package csgoperformanssianalyysi;
 
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Kartta;

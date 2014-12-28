@@ -75,55 +75,79 @@ public class ProfiiliAnalyysi {
     
     public int getKartanVoitot(Kartta kartta) {
         int wins = 0;
-        for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
-            if (map.getOmatKierrokset() > map.getVihollisenKierrokset()) {
-                wins++;
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {
+            for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
+                if (map.getOmatKierrokset() > map.getVihollisenKierrokset()) {
+                    wins++;
+                }
             }
+            return wins;
+        } else {
+            return 0;
         }
-        return wins;
     }
     
     public int getKartanHaviot(Kartta kartta) {
         int haviot = 0;
-        for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
-            if (map.getVihollisenKierrokset() > map.getOmatKierrokset()) {
-                haviot++;
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {    
+            for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
+                if (map.getVihollisenKierrokset() > map.getOmatKierrokset()) {
+                    haviot++;
+                }
             }
+            return haviot;
+        } else {
+            return 0;
         }
-        return haviot;
     }
     
     public int getKartanTasapelit(Kartta kartta) {
         int ties = 0;
-        for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
-            if (map.getOmatKierrokset() == map.getVihollisenKierrokset()) {
-                ties++;
-            }
-        } 
-        return ties;
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {
+            for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
+                if (map.getOmatKierrokset() == map.getVihollisenKierrokset()) {
+                    ties++;
+                }
+            } 
+            return ties;
+        } else {
+            return 0;
+        }
     }
     
     public int getKartanTapot(Kartta kartta) {
         int kills = 0;
-        for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
-            kills = kills + map.getOmatTapot();
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {
+            for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
+                kills = kills + map.getOmatTapot();
+            }
+            return kills;
+        } else {
+            return 0;
         }
-        return kills;
     } 
     
     public int getKartanKuolemat(Kartta kartta) {
         int deaths = 0;
-        for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
-            deaths = deaths + map.getOmatKuolemat();
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {
+            for (PelattuKartta map : profiili.getKartatMapissa().get(kartta)) {
+                deaths = deaths + map.getOmatKuolemat();
+            }
+            return deaths;
+        } else {
+            return 0;
         }
-        return deaths;
     }
     
     public double getKartanKD(Kartta kartta) {
-        int kartanTapot = getKartanTapot(kartta);
-        int kartanKuolemat = getKartanKuolemat(kartta);
-        double palautus = 1.0 * kartanTapot / kartanKuolemat;
-        return palautus;
+        if (profiili.getKartatMapissa().keySet().contains(kartta)) {
+            int kartanTapot = getKartanTapot(kartta);
+            int kartanKuolemat = getKartanKuolemat(kartta);
+            double palautus = 1.0 * kartanTapot / kartanKuolemat;
+            return palautus;
+        } else {
+            return 0;
+        }
     }
     
 }

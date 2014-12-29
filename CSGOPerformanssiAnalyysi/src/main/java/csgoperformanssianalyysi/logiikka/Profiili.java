@@ -11,6 +11,7 @@ public class Profiili {
     private ArrayList<PelattuKartta> kaikkiKartat = new ArrayList<PelattuKartta>();
     
     public Profiili(String nimi) {
+        
         this.nimi = nimi;
     }
     

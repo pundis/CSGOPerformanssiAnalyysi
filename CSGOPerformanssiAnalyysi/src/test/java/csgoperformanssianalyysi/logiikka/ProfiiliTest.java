@@ -1,3 +1,5 @@
+package csgoperformanssianalyysi.logiikka;
+
 import csgoperformanssianalyysi.logiikka.Kartta;
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Profiili;

@@ -1,3 +1,5 @@
+package csgoperformanssianalyysi.logiikka;
+
 
 
 import csgoperformanssianalyysi.logiikka.Kartta;

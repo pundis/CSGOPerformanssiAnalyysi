@@ -18,7 +18,9 @@ public class ProfiiliHallinta {
         this.profiilit  = new File("profiilit.txt");
     }
     
-    // mahd. hashmappiin vertailua ja profiilihoppailua varten
+    /**
+    * lataa profiilin ja profiiliin syötetyt kartat aiemmalta istunnolta
+    */
     public Profiili lataaProfiili(String nimi) throws Exception {
         File profile = new File(nimi.toLowerCase() + "statistics.txt");
         lukija = new Scanner(profile);
@@ -63,10 +65,6 @@ public class ProfiiliHallinta {
             palaute.add(rivi);
         }
         return palaute;
-    }
-    
-    public ArrayList<String> profiilit() {
-        return null;
     }
     
 }

@@ -6,6 +6,10 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Lataa / tallettaa profiileita .txt tiedoistoihin
+ * @author fuksi
+ */
 public class ProfiiliHallinta {
     
     

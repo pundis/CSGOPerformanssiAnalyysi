@@ -1,6 +1,10 @@
 
 package csgoperformanssianalyysi.logiikka;
 
+/**
+ * Luo pelatun kartan
+ * @author artur
+ */
 public class PelattuKartta {
 
     private Kartta kartta;

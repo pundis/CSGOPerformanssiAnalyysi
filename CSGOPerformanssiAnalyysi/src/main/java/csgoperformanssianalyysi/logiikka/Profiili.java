@@ -15,6 +15,10 @@ public class Profiili {
         this.nimi = nimi;
     }
     
+    /**
+     * Lisää profiiliin pelatun kartan.
+     * @param kartta 
+     */
     public void lisaaKartta(PelattuKartta kartta) {
         if (kartat.containsKey(kartta.getKartta())) {
             ArrayList<PelattuKartta> asd = kartat.get(kartta.getKartta());
@@ -32,10 +36,19 @@ public class Profiili {
         return this.nimi;
     }
     
+    /**
+     * 
+     * @return palauttaa HashMapin jossa on jokaisen eri kentän pelatut kartat,
+     * avaimena kenttä, ja arvona arraylist jossa kaikki pelatut kartat kyseisessä kentässä 
+     */
     public HashMap<Kartta, ArrayList<PelattuKartta>> getKartatMapissa() {
         return kartat;
     }
     
+    /**
+     * 
+     * @return palauttaa arraylistin kaikista pelatuista kentistä 
+     */
     public ArrayList<PelattuKartta> getKaikkiKartat() {
         return kaikkiKartat;
     }

@@ -3,7 +3,11 @@ package csgoperformanssianalyysi.logiikka;
 
 import java.util.ArrayList;
 
-
+/**
+ * analysoi konstruktorin parametrinä saadun profiili olion karttoja sekä niiden
+ * statistiikkoja
+ * @author fuksi
+ */
 public class ProfiiliAnalyysi {
     
     
@@ -52,7 +56,10 @@ public class ProfiiliAnalyysi {
     }
     
     
-    
+    /**
+     * laskee kaikista pelatuista kartoista yht. tapot, kuolemat, voitot häviöt ja tasapelit
+     * ja taltioi ne oliomuuttujaan
+     */
     public void luoYhtTapotKuolematVoitotHaviot() {
         if (!profiili.getKaikkiKartat().isEmpty()) {
             int tapot = 0;
@@ -72,7 +79,11 @@ public class ProfiiliAnalyysi {
             this.kuolematYht = kuolemat;
         }
     }
-    
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kentän yht. voitot
+     */
     public int getKartanVoitot(Kartta kartta) {
         int wins = 0;
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {
@@ -87,6 +98,11 @@ public class ProfiiliAnalyysi {
         }
     }
     
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kartan yht. häviöt 
+     */
     public int getKartanHaviot(Kartta kartta) {
         int haviot = 0;
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {    
@@ -101,6 +117,12 @@ public class ProfiiliAnalyysi {
         }
     }
     
+    
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kentän yht. tasapelit 
+     */
     public int getKartanTasapelit(Kartta kartta) {
         int ties = 0;
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {
@@ -115,6 +137,11 @@ public class ProfiiliAnalyysi {
         }
     }
     
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kentän yht. tapot 
+     */
     public int getKartanTapot(Kartta kartta) {
         int kills = 0;
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {
@@ -127,6 +154,11 @@ public class ProfiiliAnalyysi {
         }
     } 
     
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kentän yht. kuolemat
+     */
     public int getKartanKuolemat(Kartta kartta) {
         int deaths = 0;
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {
@@ -139,6 +171,11 @@ public class ProfiiliAnalyysi {
         }
     }
     
+    /**
+     * 
+     * @param kartta
+     * @return palauttaa parametrinä annetun kentän Kuolema-tappo ration
+     */
     public double getKartanKD(Kartta kartta) {
         if (profiili.getKartatMapissa().keySet().contains(kartta)) {
             int kartanTapot = getKartanTapot(kartta);

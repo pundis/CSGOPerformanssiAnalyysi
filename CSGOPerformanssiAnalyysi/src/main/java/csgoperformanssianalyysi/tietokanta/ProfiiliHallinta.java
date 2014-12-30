@@ -19,8 +19,11 @@ public class ProfiiliHallinta {
     }
     
     /**
-    * lataa profiilin ja profiiliin syötetyt kartat aiemmalta istunnolta
-    */
+     * lataa profiilin sekä sille syötetyn datan aiemmalta istunnolta
+     * @param nimi
+     * @return
+     * @throws Exception 
+     */
     public Profiili lataaProfiili(String nimi) throws Exception {
         File profile = new File(nimi.toLowerCase() + "statistics.txt");
         lukija = new Scanner(profile);
@@ -40,7 +43,11 @@ public class ProfiiliHallinta {
     }   
     
     
-    // dataoutputstream fileoutputstream
+    /**
+     * Tallentaa profiilin käytettäväksi seuraaville istunnoille
+     * @param profiili
+     * @throws Exception 
+     */
     public void tallennaProfiili(Profiili profiili) throws Exception {
             FileWriter kirjuri = new FileWriter(profiili.getNimi().toLowerCase() + "statistics.txt");
             kirjuri.write(profiili.getNimi() + "\n");
@@ -54,7 +61,11 @@ public class ProfiiliHallinta {
             kirjuri.close();
         }
 
-    // KO. TIEDOSTO TULISI AINA OLLA OLEMASSA
+    /**
+     * palauttaa listan profiileista jotka voidaan ladata
+     * @return 
+     * @throws Exception 
+     */
     public ArrayList<String> getProfiilit() throws Exception {
         lukija = new Scanner(profiilit);
         String rivi;

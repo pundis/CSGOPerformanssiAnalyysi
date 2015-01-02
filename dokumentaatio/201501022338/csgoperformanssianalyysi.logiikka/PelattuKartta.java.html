@@ -1,0 +1,723 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+border: 1px solid #dddddd;
+padding-top: 10px;
+padding-right: 5px;
+padding-left: 5px;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+</style>
+
+</head>
+<body>
+
+
+<h1>PelattuKartta.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_1'/>
+1
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_1'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_2'/>
+2
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_2'></a>
+</td>
+<td class=''><pre><span  class=''>package csgoperformanssianalyysi.logiikka;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_3'/>
+3
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_3'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_4'/>
+4
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_4'></a>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_5'/>
+5
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_5'></a>
+</td>
+<td class=''><pre><span  class=''> * Luo pelatun kartan</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_6'/>
+6
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_6'></a>
+</td>
+<td class=''><pre><span  class=''> * @author artur</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_7'/>
+7
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_7'></a>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_8'/>
+8
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_8'></a>
+</td>
+<td class=''><pre><span  class=''>public class PelattuKartta {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_9'/>
+9
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_9'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_10'/>
+10
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_10'></a>
+</td>
+<td class=''><pre><span  class=''>    private Kartta kartta;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_11'/>
+11
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_11'></a>
+</td>
+<td class=''><pre><span  class=''>    private int omatKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_12'/>
+12
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_12'></a>
+</td>
+<td class=''><pre><span  class=''>    private int vihollisenKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_13'/>
+13
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_13'></a>
+</td>
+<td class=''><pre><span  class=''>    private int omatTapot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_14'/>
+14
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_14'></a>
+</td>
+<td class=''><pre><span  class=''>    private int omatKuolemat;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_15'/>
+15
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_15'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_16'/>
+16
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_16'></a>
+</td>
+<td class=''><pre><span  class=''>    public PelattuKartta(Kartta kartta, int omatKierrokset, int vihollisenKierrokset,</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_17'/>
+17
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_17'></a>
+</td>
+<td class='covered'><pre><span  class=''>            int omatTapot, int omatKuolemat) {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_18'/>
+18
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_18'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.kartta = kartta;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_19'/>
+19
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_19'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.omatKierrokset = omatKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_20'/>
+20
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_20'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.vihollisenKierrokset = vihollisenKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_21'/>
+21
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_21'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.omatTapot = omatTapot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_22'/>
+22
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_22'></a>
+</td>
+<td class='covered'><pre><span  class=''>        this.omatKuolemat = omatKuolemat;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_23'/>
+23
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_23'></a>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_24'/>
+24
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_24'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_25'/>
+25
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_25'></a>
+</td>
+<td class=''><pre><span  class=''>    public Kartta getKartta() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_26'/>
+26
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_26'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return kartta;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_27'/>
+27
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_27'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_28'/>
+28
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_28'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_29'/>
+29
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_29'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getOmatKierrokset() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_30'/>
+30
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_30'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return omatKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_31'/>
+31
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_31'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_32'/>
+32
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_32'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_33'/>
+33
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_33'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getVihollisenKierrokset() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_34'/>
+34
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_34'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return vihollisenKierrokset;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_35'/>
+35
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_35'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_36'/>
+36
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_36'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_37'/>
+37
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_37'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getOmatTapot() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_38'/>
+38
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_38'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return omatTapot;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_39'/>
+39
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_39'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_40'/>
+40
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_40'></a>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_41'/>
+41
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_41'></a>
+</td>
+<td class=''><pre><span  class=''>    public int getOmatKuolemat() {</span></pre></td></tr>
+
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_42'/>
+42
+</td>
+<td class='killed'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_42'>1</a>
+</td>
+<td class='covered'><pre><span  class='killed'>        return omatKuolemat;</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_43'/>
+43
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_43'></a>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_44'/>
+44
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_44'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_45'/>
+45
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_45'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_46'/>
+46
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_46'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_47'/>
+47
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_47'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_48'/>
+48
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_48'></a>
+</td>
+<td class=''><pre><span  class=''>    </span></pre></td></tr>
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@2ff3b546_49'/>
+49
+</td>
+<td class=''>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_49'></a>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2ff3b546_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_26'/> 
+
+<p class='KILLED'>mutated return of Object value for csgoperformanssianalyysi/logiikka/PelattuKartta::getKartta to ( if (x != null) null else throw new RuntimeException ) : KILLED -> csgoperformanssianalyysi.logiikka.ProfiiliTest.oikeaMaaraCachePeleja(csgoperformanssianalyysi.logiikka.ProfiiliTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2ff3b546_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_30'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallVoittoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2ff3b546_34'>34</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_34'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallVoittoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2ff3b546_38'>38</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_38'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallTappoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest)</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@2ff3b546_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@2ff3b546_42'/> 
+
+<p class='KILLED'>replaced return of integer sized value with (x == 0 ? 1 : 0) : KILLED -> csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaOverallKdr(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest)</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaCobblestoneKdr2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (9 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneTasapeleja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (6 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallTasapeleja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaCobblestoneKdr(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (36 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallHavioita2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (6 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallTasapeleja2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (5 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneTasapelejaKunTasureitaNolla(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (6 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallVoittoja2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (4 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallHavioita(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (8 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallTappoja2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallKuolemia2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (5 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneVoittoja2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliTest.karttaKohtaisessaMapissaOikeaMaaraAvaimia(csgoperformanssianalyysi.logiikka.ProfiiliTest) (3 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraTrainVoittojaKunPelattujaJuniaNolla(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (4 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaOverallKdr(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (3 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallHavioita3(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (6 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneTappoja2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (8 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneHavioita2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (10 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneHavioita(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (9 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneKuolemia2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (8 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraDust2HavioitaKunPelattujaHiekkojaNolla(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.overallStatistiikkaPaivitysPaivittaaOliomuuttujatOikein(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (6 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliTest.kaikkienKarttaListassaOikeaMaaraPelattjaKarttoja(csgoperformanssianalyysi.logiikka.ProfiiliTest) (2 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaOverallKdr2(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (5 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneKuolemia(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (9 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraTrainTappojaKunPelattujaJuniaNolla(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (4 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallTappoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneTappoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (9 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallVoittoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (4 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallVoittoja3(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (5 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliTest.oikeaMaaraDust2Peleja(csgoperformanssianalyysi.logiikka.ProfiiliTest) (2 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliTest.oikeaMaaraCachePeleja(csgoperformanssianalyysi.logiikka.ProfiiliTest) (2 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraOverallKuolemia(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (5 ms)</li><li>csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest.oikeaMaaraCobblestoneVoittoja(csgoperformanssianalyysi.logiikka.ProfiiliAnalyysiTest) (7 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 0.30
+
+</body>
+</html>

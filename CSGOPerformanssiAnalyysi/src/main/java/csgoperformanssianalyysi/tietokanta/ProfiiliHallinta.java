@@ -38,8 +38,8 @@ public class ProfiiliHallinta {
             rivi = lukija.nextLine();
             String[] tiedot = rivi.split("-");
             PelattuKartta k = new PelattuKartta(Kartta.valueOf(tiedot[0]),
-             Integer.parseInt(tiedot[1]), Integer.parseInt(tiedot[2]), 
-             Integer.parseInt(tiedot[3]), Integer.parseInt(tiedot[4]));
+            Integer.parseInt(tiedot[1]), Integer.parseInt(tiedot[2]), 
+            Integer.parseInt(tiedot[3]), Integer.parseInt(tiedot[4]));
             ladattavaProfiili.lisaaKartta(k);
         }
         lukija.close();
@@ -53,17 +53,16 @@ public class ProfiiliHallinta {
      * @throws Exception 
      */
     public void tallennaProfiili(Profiili profiili) throws Exception {
-            FileWriter kirjuri = new FileWriter(profiili.getNimi().toLowerCase() + "statistics.txt");
-            kirjuri.write(profiili.getNimi() + "\n");
+        FileWriter kirjuri = new FileWriter(profiili.getNimi().toLowerCase() + "statistics.txt");
+        kirjuri.write(profiili.getNimi() + "\n");
 
-            for (PelattuKartta kartta : profiili.getKaikkiKartat()) {
-
-                kirjuri.write("" + kartta.getKartta().toString() + "-" + kartta.getOmatKierrokset() + "-"
-                        + kartta.getVihollisenKierrokset()+ "-" + kartta.getOmatTapot() + "-"
-                        + kartta.getOmatKuolemat() + "\n");
-            }
-            kirjuri.close();
+        for (PelattuKartta kartta : profiili.getKaikkiKartat()) {
+            kirjuri.write("" + kartta.getKartta().toString() + "-" + kartta.getOmatKierrokset() + "-"
+            + kartta.getVihollisenKierrokset() + "-" + kartta.getOmatTapot() + "-"
+            + kartta.getOmatKuolemat() + "\n");
         }
+            kirjuri.close();
+    }
 
     /**
      * palauttaa listan profiileista jotka voidaan ladata

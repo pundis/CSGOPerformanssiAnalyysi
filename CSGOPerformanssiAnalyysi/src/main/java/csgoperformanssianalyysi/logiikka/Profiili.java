@@ -1,18 +1,39 @@
 
 package csgoperformanssianalyysi.logiikka;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Profiili {
 
     private String nimi;
     private HashMap<Kartta, ArrayList<PelattuKartta>> kartat = new HashMap<Kartta, ArrayList<PelattuKartta>>();
     private ArrayList<PelattuKartta> kaikkiKartat = new ArrayList<PelattuKartta>();
+    private ProfiiliAnalyysi pa;
     
-    public Profiili(String nimi) {
-        
+    public Profiili(String nimi) throws Exception {
+        this.pa = new ProfiiliAnalyysi(this);
         this.nimi = nimi;
+        
+        File file = new File("profiilit.txt");
+        Scanner lukija = new Scanner(file);
+        String rivi = "";
+        boolean onkoOlemassa = false;
+        
+        while (lukija.hasNextLine()) {
+            rivi = rivi + lukija.nextLine();
+            if (rivi.contains(nimi)) {
+                onkoOlemassa = true;
+            }
+        }
+        if (onkoOlemassa == false) {
+            FileWriter kirjuri = new FileWriter("profiilit.txt");
+            kirjuri.write(rivi);
+            kirjuri.close();
+        }
     }
     
     /**
@@ -30,6 +51,7 @@ public class Profiili {
             kartat.put(kartta.getKartta(), asd);
             kaikkiKartat.add(kartta);
         }
+        this.pa.luoYhtTapotKuolematVoitotHaviot();
     }
     
     public String getNimi() {
@@ -52,5 +74,6 @@ public class Profiili {
     public ArrayList<PelattuKartta> getKaikkiKartat() {
         return kaikkiKartat;
     }
+    
     
 }

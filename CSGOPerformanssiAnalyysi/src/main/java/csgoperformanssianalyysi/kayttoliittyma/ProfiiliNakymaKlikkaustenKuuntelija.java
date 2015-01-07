@@ -3,10 +3,13 @@ package csgoperformanssianalyysi.kayttoliittyma;
 import csgoperformanssianalyysi.logiikka.Kartta;
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Profiili;
+import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -17,10 +20,12 @@ public class ProfiiliNakymaKlikkaustenKuuntelija implements ActionListener {
     
     private Profiili profiili;
     private ArrayList<PelattuKartta> pelatut;
+    private ProfiiliNakyma pn;
     
-    public ProfiiliNakymaKlikkaustenKuuntelija(Profiili profiili) {
+    public ProfiiliNakymaKlikkaustenKuuntelija(Profiili profiili, ProfiiliNakyma pn) {
         this.profiili = profiili;
         this.pelatut = profiili.getKaikkiKartat();
+        this.pn = pn;
     }
 
     @Override
@@ -126,6 +131,13 @@ public class ProfiiliNakymaKlikkaustenKuuntelija implements ActionListener {
             profiili.lisaaKartta(new PelattuKartta(Kartta.valueOf(combo.getSelectedItem().toString()), 
                     Integer.parseInt(omatkierrokset.getText()), Integer.parseInt(vihollisenkierrokset.getText()), 
                     Integer.parseInt(omattapot.getText()), Integer.parseInt(omatkuolemat.getText())));
+            
+        } else if (ae.getActionCommand().equals("Päivitä")) {
+            try {
+                pn.paivita(this.profiili);
+            } catch (Exception ex) {
+                System.out.println("piäleen män");
+            }
         }
     }
 }

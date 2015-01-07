@@ -29,11 +29,13 @@ public class NakymaHallitsija {
         return this.nykyinengrafiikka;
     }
     
-    public void profiiliNakyma(String profiilinNimi) throws Exception {
-        Profiili profiili = profhal.lataaProfiili(profiilinNimi);
+    public void profiiliNakyma(Profiili profiili) throws Exception {
+        this.profhal = new ProfiiliHallinta();
+        profiili = profhal.lataaProfiili(profiili.getNimi());
         ProfiiliAnalyysi profana = new ProfiiliAnalyysi(profiili);
+        profana.luoYhtTapotKuolematVoitotHaviot();
         
-        ProfiiliNakyma pn = new ProfiiliNakyma(profana);
+        ProfiiliNakyma pn = new ProfiiliNakyma(profana, this);
         this.nykyinengrafiikka = pn.luoKomponentit();
     }
     

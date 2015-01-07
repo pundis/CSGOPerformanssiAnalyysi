@@ -6,3 +6,7 @@
 4. Profiilinhallinnan toteutus (Pajassa) 2h (29.12)
 5. JavaDoc & profiilinhallinnan hiontaa 3h (30.12)
 6. Graafisen käyttöliittymän suunnittelua ja virheistä oppimista (uudelleenopetusta) 7h (2.1)
+7. GKL toteutusta 5h (4.1)
+8. GKL toteutusta 4h (5.1)
+9. GKL suttaus ja uudelleenaloitus :) (6.1)
+10. 

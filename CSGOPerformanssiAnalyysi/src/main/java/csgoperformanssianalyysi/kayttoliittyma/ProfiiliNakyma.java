@@ -4,6 +4,7 @@ import csgoperformanssianalyysi.logiikka.Kartta;
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Profiili;
 import csgoperformanssianalyysi.logiikka.ProfiiliAnalyysi;
+import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -21,12 +22,15 @@ public class ProfiiliNakyma implements Nakyma {
     private Profiili prof;
     private double kdr;
     private ProfiiliNakymaKlikkaustenKuuntelija kk;
+    private Container kontti;
+    private NakymaHallitsija nh;
     
-    public ProfiiliNakyma(ProfiiliAnalyysi profana) {
+    public ProfiiliNakyma(ProfiiliAnalyysi profana, NakymaHallitsija nh) {
         this.profana = profana;
         this.prof = profana.getProfiili();
         this.kdr = profana.getKdr();
-        this.kk = new ProfiiliNakymaKlikkaustenKuuntelija(this.prof);
+        this.nh = nh;
+        this.kk = new ProfiiliNakymaKlikkaustenKuuntelija(this.prof, this);
     }
     
     @Override
@@ -40,8 +44,10 @@ public class ProfiiliNakyma implements Nakyma {
         
         
         JPanel yleiskatsaus = luoYleisKatsaus();
+
         
         container.add(yleiskatsaus);
+        
         
         container.add(new JLabel());
         JPanel pnl = new JPanel();
@@ -77,9 +83,15 @@ public class ProfiiliNakyma implements Nakyma {
         napit.add(lisaysnappi);
         napit.add(palaaProfiilinLataukseen);
         
+        JButton paivita = new JButton("Päivitä");
+        paivita.addActionListener(kk);
+        napit.add(paivita);
+        
         container.add(new JPanel());
         container.add(new JPanel());
         container.add(napit);
+        
+        this.kontti = container;
         
         return container;
     }
@@ -144,5 +156,10 @@ public class ProfiiliNakyma implements Nakyma {
         return lisaakartta;
     }
     
-    
+    public void paivita(Profiili profiili) throws Exception {
+        ProfiiliHallinta ph = new ProfiiliHallinta();
+        ph.tallennaProfiili(prof);
+        this.nh.profiiliNakyma(this.prof);
+    }
+   
 }

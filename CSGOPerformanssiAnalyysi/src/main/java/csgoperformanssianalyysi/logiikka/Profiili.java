@@ -31,7 +31,7 @@ public class Profiili {
         }
         if (onkoOlemassa == false) {
             FileWriter kirjuri = new FileWriter("profiilit.txt");
-            kirjuri.write(rivi);
+            kirjuri.write(rivi + "\n");
             kirjuri.close();
         }
     }

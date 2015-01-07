@@ -78,7 +78,15 @@ public class ProfiiliHallinta {
             rivi = lukija.nextLine();
             palaute.add(rivi);
         }
+        lukija.close();
         return palaute;
+    }
+    
+    public void lisaaUusiProfiili(String profiili) throws Exception {
+        try (FileWriter fw = new FileWriter(profiilit)) {
+            fw.append(profiili + "\n");
+            fw.close();
+        }
     }
     
 }

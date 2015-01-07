@@ -12,10 +12,10 @@ import javax.swing.WindowConstants;
 public class GraafinenKayttoliittyma implements Runnable {
 
     private JFrame frame;
-    private ArrayList<String> profiilit;
+    private NakymaHallitsija nh;
     
-    public GraafinenKayttoliittyma(ArrayList<String> profiilit) {
-        this.profiilit = profiilit;
+    public GraafinenKayttoliittyma(NakymaHallitsija nh) {
+        this.nh = nh;
     }
 
     @Override
@@ -24,16 +24,10 @@ public class GraafinenKayttoliittyma implements Runnable {
         frame.setPreferredSize(new Dimension(800, 600));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         
-        luoProfiilinLatausNakyma(frame.getContentPane(), profiilit);
+        frame.setContentPane(nh.nykyinenNakyma());
         
         frame.pack();
         frame.setVisible(true);
     }
 
-    
-    public void luoProfiilinLatausNakyma(Container container, ArrayList<String> profiilit) {
-//        ProfiiliLataus pl = new ProfiiliLataus();
-//        frame.setContentPane(pl.luoKomponentit(profiilit));
-    }
-    
 }

@@ -13,7 +13,7 @@ public class ProfiiliTest {
     public ProfiiliTest() {
     }
     
-    public Profiili luoProfiiliJa5PelattuaKarttaa() {
+    public Profiili luoProfiiliJa5PelattuaKarttaa() throws Exception {
         Profiili profiili = new Profiili("Arttu");
         profiili.lisaaKartta(new PelattuKartta(Kartta.dust2, 8, 16, 11, 23));
         profiili.lisaaKartta(new PelattuKartta(Kartta.nuke, 16, 8, 22, 20));
@@ -25,31 +25,31 @@ public class ProfiiliTest {
     
     
     @Test
-    public void kaikkienKarttaListassaOikeaMaaraPelattjaKarttoja() {
+    public void kaikkienKarttaListassaOikeaMaaraPelattjaKarttoja() throws Exception {
         Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
         assertEquals(profiili.getKaikkiKartat().size(), 5);
     }
     
     @Test
-    public void kaikkienKarttaListassaOikeaMaaraPelattujaKarttoja2() {
+    public void kaikkienKarttaListassaOikeaMaaraPelattujaKarttoja2() throws Exception {
         Profiili arttu = new Profiili("Arttu");
         assertEquals(arttu.getKaikkiKartat().isEmpty(), true);
     }
     
     @Test
-    public void oikeaMaaraCachePeleja() {
+    public void oikeaMaaraCachePeleja() throws Exception {
         Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
         assertEquals(profiili.getKartatMapissa().get(Kartta.cache).size(), 3);
     }
     
     @Test
-    public void oikeaMaaraDust2Peleja() {
+    public void oikeaMaaraDust2Peleja() throws Exception {
         Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
         assertEquals(profiili.getKartatMapissa().get(Kartta.dust2).size(), 1);
     }
     
     @Test
-    public void karttaKohtaisessaMapissaOikeaMaaraAvaimia() {
+    public void karttaKohtaisessaMapissaOikeaMaaraAvaimia() throws Exception {
         Profiili profiili = luoProfiiliJa5PelattuaKarttaa();
         HashMap<Kartta, ArrayList<PelattuKartta>> asd = profiili.getKartatMapissa();
         int i = 0;
@@ -60,7 +60,7 @@ public class ProfiiliTest {
     }
     
     @Test
-    public void getNimiToimii() {
+    public void getNimiToimii() throws Exception {
         Profiili profiili = new Profiili("Arttu");
         assertEquals(profiili.getNimi(), "Arttu");
     }

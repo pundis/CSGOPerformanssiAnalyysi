@@ -5,7 +5,11 @@ package csgoperformanssianalyysi.logiikka;
 
 public enum Kartta {
 
-    train, season, dust2, nuke, mirage, inferno, cobblestone, overpass, cache,
+    train, dust2, nuke, mirage, inferno, cobble, overpass, cache,
     OTHER;
     
+    @Override
+    public String toString() {
+        return this.name();
+    }
 }

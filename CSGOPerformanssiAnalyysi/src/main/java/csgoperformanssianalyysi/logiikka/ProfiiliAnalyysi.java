@@ -1,7 +1,7 @@
 
 package csgoperformanssianalyysi.logiikka;
 
-import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 /**
  * analysoi konstruktorin parametrinä saadun profiili olion karttoja sekä niiden
@@ -51,6 +51,7 @@ public class ProfiiliAnalyysi {
     public double getKdr() {
         int kills = this.tapotYht;
         int deaths = this.kuolematYht;
+        
         double palautus = 1.0 * kills / deaths;
         return palautus;
     }
@@ -64,6 +65,8 @@ public class ProfiiliAnalyysi {
         if (!profiili.getKaikkiKartat().isEmpty()) {
             int tapot = 0;
             int kuolemat = 0;
+            this.voittoja = 0;
+            this.havioita = 0;
             for (PelattuKartta kartta : profiili.getKaikkiKartat()) {
                 tapot = tapot + kartta.getOmatTapot();
                 kuolemat = kuolemat + kartta.getOmatKuolemat();

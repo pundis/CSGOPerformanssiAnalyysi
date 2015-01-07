@@ -42,8 +42,9 @@ public class PelattuKartta {
         return omatKuolemat;
     }
     
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Result: " + this.omatKierrokset + "-" + this.vihollisenKierrokset + " (" + this.omatTapot + "-" + this.omatKuolemat + ")";
+    }
+   
 }

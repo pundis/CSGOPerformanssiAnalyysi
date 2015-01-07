@@ -59,7 +59,7 @@ public class ProfiiliAnalyysiTest {
     }
     
     @Test
-    public void oikeaMaaraOverallVoittoja3() {
+    public void oikeaMaaraOverallVoittoja3() throws Exception {
         Profiili asd = new Profiili("Keke Rosberg");
         asd.lisaaKartta(new PelattuKartta(Kartta.OTHER, 15, 15, 15, 15));
         asd.lisaaKartta(new PelattuKartta(Kartta.OTHER, 4, 16, 2, 16));
@@ -74,7 +74,7 @@ public class ProfiiliAnalyysiTest {
     }
     
     @Test
-    public void oikeaMaaraOverallHavioita2() {
+    public void oikeaMaaraOverallHavioita2() throws Exception {
         Profiili keke = new Profiili("Keke");
         keke.lisaaKartta(new PelattuKartta(Kartta.OTHER, 10, 16, 19, 19));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(keke);
@@ -118,40 +118,40 @@ public class ProfiiliAnalyysiTest {
     @Test
     public void oikeaMaaraCobblestoneTappoja() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(55, pa.getKartanTapot(Kartta.cobblestone));
+        assertEquals(55, pa.getKartanTapot(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneTappoja2() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 15, 15, 30, 15));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 15, 15, 30, 15));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(85, pa.getKartanTapot(Kartta.cobblestone));
+        assertEquals(85, pa.getKartanTapot(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneKuolemia() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(35, pa.getKartanKuolemat(Kartta.cobblestone));
+        assertEquals(35, pa.getKartanKuolemat(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneKuolemia2() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 15, 15, 25, 20));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 15, 15, 25, 20));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(55, pa.getKartanKuolemat(Kartta.cobblestone));
+        assertEquals(55, pa.getKartanKuolemat(Kartta.cobble));
     }
     
     @Test
     public void oikeaCobblestoneKdr() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(1.571, pa.getKartanKD(Kartta.cobblestone), 3);
+        assertEquals(1.571, pa.getKartanKD(Kartta.cobble), 3);
     }
     
     @Test
     public void oikeaCobblestoneKdr2() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 15, 15, 30, 10));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 15, 15, 30, 10));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(1.888, pa.getKartanKD(Kartta.cobblestone), 3);
+        assertEquals(1.888, pa.getKartanKD(Kartta.cobble), 3);
     }
     
     @Test
@@ -169,27 +169,27 @@ public class ProfiiliAnalyysiTest {
     @Test
     public void oikeaMaaraCobblestoneVoittoja() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(1, pa.getKartanVoitot(Kartta.cobblestone));
+        assertEquals(1, pa.getKartanVoitot(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneVoittoja2() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 16, 14, 26, 24));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 16, 14, 26, 24));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(2, pa.getKartanVoitot(Kartta.cobblestone));
+        assertEquals(2, pa.getKartanVoitot(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneHavioita() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(1, pa.getKartanHaviot(Kartta.cobblestone));
+        assertEquals(1, pa.getKartanHaviot(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneHavioita2() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 14, 16, 25, 25));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 14, 16, 25, 25));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(2, pa.getKartanHaviot(Kartta.cobblestone));
+        assertEquals(2, pa.getKartanHaviot(Kartta.cobble));
     }
     
     @Test
@@ -201,14 +201,14 @@ public class ProfiiliAnalyysiTest {
     @Test
     public void oikeaMaaraCobblestoneTasapelejaKunTasureitaNolla() {
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(0, pa.getKartanTasapelit(Kartta.cobblestone));
+        assertEquals(0, pa.getKartanTasapelit(Kartta.cobble));
     }
     
     @Test
     public void oikeaMaaraCobblestoneTasapeleja() {
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 15, 15, 33, 19));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 15, 15, 33, 19));
         ProfiiliAnalyysi pa = new ProfiiliAnalyysi(profiili);
-        assertEquals(1, pa.getKartanTasapelit(Kartta.cobblestone));
+        assertEquals(1, pa.getKartanTasapelit(Kartta.cobble));
     }
     
     @Test
@@ -217,12 +217,12 @@ public class ProfiiliAnalyysiTest {
     }
  
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
         profiili = new Profiili("Arttu");
         profiili.lisaaKartta(new PelattuKartta(Kartta.OTHER, 16, 11, 40, 20));
         profiili.lisaaKartta(new PelattuKartta(Kartta.nuke, 10, 16, 20, 20));
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 16, 14, 40, 20));
-        profiili.lisaaKartta(new PelattuKartta(Kartta.cobblestone, 2, 16, 15, 15));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 16, 14, 40, 20));
+        profiili.lisaaKartta(new PelattuKartta(Kartta.cobble, 2, 16, 15, 15));
         profiili.lisaaKartta(new PelattuKartta(Kartta.mirage, 16, 5, 25, 10));
         profiili.lisaaKartta(new PelattuKartta(Kartta.OTHER, 16, 12, 25, 15));
     }

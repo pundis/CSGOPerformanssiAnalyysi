@@ -15,7 +15,7 @@ public class Profiili {
     private ProfiiliAnalyysi pa;
     
     public Profiili(String nimi) throws Exception {
-        this.pa = new ProfiiliAnalyysi(this);
+//        this.pa = new ProfiiliAnalyysi(this);
         this.nimi = nimi;
         
         File file = new File("profiilit.txt");
@@ -24,15 +24,20 @@ public class Profiili {
         boolean onkoOlemassa = false;
         
         while (lukija.hasNextLine()) {
-            rivi = rivi + lukija.nextLine();
-            if (rivi.contains(nimi)) {
+            rivi = rivi + lukija.nextLine() + "\n";
+            if (rivi.toLowerCase().contains(nimi.toLowerCase())) {
                 onkoOlemassa = true;
             }
         }
+        lukija.close();
         if (onkoOlemassa == false) {
             FileWriter kirjuri = new FileWriter("profiilit.txt");
-            kirjuri.write(rivi + "\n");
+            kirjuri.write(rivi + nimi);
             kirjuri.close();
+            File statfile = new File(nimi.toLowerCase() + "statistics.txt");
+            FileWriter fw = new FileWriter(statfile);
+            fw.write(nimi + "\n");
+            fw.close();
         }
     }
     
@@ -51,7 +56,7 @@ public class Profiili {
             kartat.put(kartta.getKartta(), asd);
             kaikkiKartat.add(kartta);
         }
-        this.pa.luoYhtTapotKuolematVoitotHaviot();
+//        this.pa.luoYhtTapotKuolematVoitotHaviot();
     }
     
     public String getNimi() {

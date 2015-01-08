@@ -14,7 +14,10 @@ public class GraafinenKayttoliittyma implements Runnable {
     private JFrame frame;
     private NakymaHallitsija nh;
     
-    public GraafinenKayttoliittyma(NakymaHallitsija nh) {
+    public GraafinenKayttoliittyma() {
+    }
+    
+    public void setNakymaHallitsija(NakymaHallitsija nh) {
         this.nh = nh;
     }
 
@@ -28,6 +31,12 @@ public class GraafinenKayttoliittyma implements Runnable {
         
         frame.pack();
         frame.setVisible(true);
+    }
+    
+    public void paivita(Container container) {
+        frame.getContentPane().removeAll();
+        frame.setContentPane(container);
+        frame.pack();
     }
 
 }

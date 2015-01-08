@@ -8,11 +8,16 @@ import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 public class Paaohjelma {
 
     public static void main(String[] args) throws Exception {
-        ProfiiliHallinta ph = new ProfiiliHallinta();
-        NakymaHallitsija nh = new NakymaHallitsija(ph);
-        nh.profiiliNakyma(new Profiili("Jesper"));
+        NakymaHallitsija nh = new NakymaHallitsija();
+        GraafinenKayttoliittyma gkl = new GraafinenKayttoliittyma();
+        gkl.setNakymaHallitsija(nh);
+        nh.setGkl(gkl);
         
-        GraafinenKayttoliittyma gkl = new GraafinenKayttoliittyma(nh);
+        ProfiiliHallinta ph = new ProfiiliHallinta();
+        nh.setProfiilinHallinta(ph);
+        nh.profiiliLatausNakyma();
+//        Profiili profiili = new Profiili("Juuso");
+//        nh.profiiliNakyma(profiili.getNimi());
         gkl.run();
     }
     

@@ -14,16 +14,19 @@ import javax.swing.JRadioButton;
 public class ProfiiliLatausNakyma implements Nakyma {
 
     private ArrayList<String> profiilit;
-
-    public ProfiiliLatausNakyma(ArrayList<String> profiilit) {
+    private NakymaHallitsija nh;
+    private ProfiiliLatausNakymaKlikkaustenKuuntelija pnkk;
+    
+    public ProfiiliLatausNakyma(ArrayList<String> profiilit, NakymaHallitsija nh) throws Exception {
         this.profiilit = profiilit;
+        this.nh = nh;
+        this.pnkk = new ProfiiliLatausNakymaKlikkaustenKuuntelija(nh);
     }
     
     @Override
     public Container luoKomponentit() {
         Container container = new Container();
         ButtonGroup bg = new ButtonGroup();
-        ProfiiliLatausNakymaKlikkaustenKuuntelija kk = new ProfiiliLatausNakymaKlikkaustenKuuntelija();
         
         container.setBackground(Color.CYAN);
         GridLayout gl = new GridLayout(10, 1);
@@ -32,16 +35,16 @@ public class ProfiiliLatausNakyma implements Nakyma {
         
         for (String profiili : profiilit) {
             JRadioButton profiiliNappula = new JRadioButton(profiili);
-            profiiliNappula.addActionListener(kk);
+            profiiliNappula.addActionListener(this.pnkk);
             bg.add(profiiliNappula);
-            profiiliNappula.addActionListener(kk);
+            profiiliNappula.addActionListener(this.pnkk);
             container.add(profiiliNappula);
         }
         JButton uusiprofiilinappula = new JButton("Luo uusi profiili");
-        uusiprofiilinappula.addActionListener(kk);
+        uusiprofiilinappula.addActionListener(this.pnkk);
         container.add(uusiprofiilinappula);
         JButton suoritavalinta = new JButton("Lataa profiili");
-        suoritavalinta.addActionListener(kk);
+        suoritavalinta.addActionListener(this.pnkk);
         
         container.add(suoritavalinta);
         return container;

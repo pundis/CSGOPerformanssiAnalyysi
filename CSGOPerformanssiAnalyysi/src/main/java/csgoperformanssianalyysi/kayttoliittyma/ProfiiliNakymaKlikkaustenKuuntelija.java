@@ -4,6 +4,7 @@ import csgoperformanssianalyysi.logiikka.Kartta;
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Profiili;
 import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
+import java.awt.Container;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,12 +21,12 @@ public class ProfiiliNakymaKlikkaustenKuuntelija implements ActionListener {
     
     private Profiili profiili;
     private ArrayList<PelattuKartta> pelatut;
-    private ProfiiliNakyma pn;
+    private NakymaHallitsija nh;
     
-    public ProfiiliNakymaKlikkaustenKuuntelija(Profiili profiili, ProfiiliNakyma pn) {
+    public ProfiiliNakymaKlikkaustenKuuntelija(Profiili profiili, NakymaHallitsija nh) {
         this.profiili = profiili;
         this.pelatut = profiili.getKaikkiKartat();
-        this.pn = pn;
+        this.nh = nh;
     }
 
     @Override
@@ -131,13 +132,22 @@ public class ProfiiliNakymaKlikkaustenKuuntelija implements ActionListener {
             profiili.lisaaKartta(new PelattuKartta(Kartta.valueOf(combo.getSelectedItem().toString()), 
                     Integer.parseInt(omatkierrokset.getText()), Integer.parseInt(vihollisenkierrokset.getText()), 
                     Integer.parseInt(omattapot.getText()), Integer.parseInt(omatkuolemat.getText())));
-            
-        } else if (ae.getActionCommand().equals("Päivitä")) {
+            ProfiiliHallinta ph;
             try {
-                pn.paivita(this.profiili);
+                ph = new ProfiiliHallinta();
+                ph.tallennaProfiili(profiili);
+                nh.profiiliNakyma(profiili.getNimi());
+                nh.paivitaGui(nh.nykyinenNakyma());
             } catch (Exception ex) {
-                System.out.println("piäleen män");
             }
+        } else if (ae.getActionCommand().equals("Vaihda profiilia")) {
+            try {
+                nh.profiiliLatausNakyma();
+                Container container = nh.nykyinenNakyma();
+                nh.paivitaGui(container);
+            } catch (Exception ex) {
+            }
+            
         }
     }
 }

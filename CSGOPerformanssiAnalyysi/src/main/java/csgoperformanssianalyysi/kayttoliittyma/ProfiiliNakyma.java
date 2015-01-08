@@ -30,13 +30,11 @@ public class ProfiiliNakyma implements Nakyma {
         this.prof = profana.getProfiili();
         this.kdr = profana.getKdr();
         this.nh = nh;
-        this.kk = new ProfiiliNakymaKlikkaustenKuuntelija(this.prof, this);
+        this.kk = new ProfiiliNakymaKlikkaustenKuuntelija(this.prof, nh);
     }
     
     @Override
-    public Container luoKomponentit() {
-        profana.luoYhtTapotKuolematVoitotHaviot();
-        
+    public Container luoKomponentit() {     
         Container container = new Container();
         container.setLayout(new GridLayout(12, 12));
         container.setSize(800, 600);
@@ -83,10 +81,7 @@ public class ProfiiliNakyma implements Nakyma {
         napit.add(lisaysnappi);
         napit.add(palaaProfiilinLataukseen);
         
-        JButton paivita = new JButton("Päivitä");
-        paivita.addActionListener(kk);
-        napit.add(paivita);
-        
+
         container.add(new JPanel());
         container.add(new JPanel());
         container.add(napit);
@@ -155,11 +150,6 @@ public class ProfiiliNakyma implements Nakyma {
         lisaakartta.addActionListener(kk);
         return lisaakartta;
     }
-    
-    public void paivita(Profiili profiili) throws Exception {
-        ProfiiliHallinta ph = new ProfiiliHallinta();
-        ph.tallennaProfiili(prof);
-        this.nh.profiiliNakyma(this.prof);
-    }
+   
    
 }

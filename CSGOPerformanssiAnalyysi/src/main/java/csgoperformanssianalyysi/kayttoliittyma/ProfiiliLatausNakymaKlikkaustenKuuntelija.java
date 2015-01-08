@@ -1,6 +1,9 @@
 
 package csgoperformanssianalyysi.kayttoliittyma;
 
+import csgoperformanssianalyysi.logiikka.Profiili;
+import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.logging.Level;
@@ -9,21 +12,35 @@ import javax.swing.JOptionPane;
 
 public class ProfiiliLatausNakymaKlikkaustenKuuntelija implements ActionListener {
     
-    public ProfiiliLatausNakymaKlikkaustenKuuntelija() {
-        
-    }
-    
     private String ladattava;
     private NakymaHallitsija nh;
-
+    private ProfiiliHallinta ph = new ProfiiliHallinta();
+    
+    public ProfiiliLatausNakymaKlikkaustenKuuntelija(NakymaHallitsija nh) throws Exception {
+        this.nh = nh;
+    }
     
     @Override
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand().equals("Lataa profiili")) {
-            System.out.println(ladattava);
+            try {
+                Profiili profiili = ph.lataaProfiili(ladattava);
+                nh.profiiliNakyma(profiili.getNimi());
+                Container container = nh.nykyinenNakyma();
+                nh.paivitaGui(container);
+            } catch (Exception ex) {
+            }
         } else  if (ae.getActionCommand().equals("Luo uusi profiili")) {
             ladattava = JOptionPane.showInputDialog("Profiilin nimi", null);
-            System.out.println(ladattava);
+            if (ladattava != null) {
+                try {
+                    Profiili profiili = new Profiili(ladattava);
+                    nh.profiiliNakyma(profiili.getNimi());
+                    Container container = nh.nykyinenNakyma();
+                    nh.paivitaGui(container);
+                } catch (Exception ex) {
+                }
+            }
         } else {
             ladattava = ae.getActionCommand();
         }

@@ -29,21 +29,25 @@ public class ProfiiliHallinta {
      * @throws Exception 
      */
     public Profiili lataaProfiili(String nimi) throws Exception {
+        
         File profile = new File(nimi.toLowerCase() + "statistics.txt");
         lukija = new Scanner(profile);
         String rivi = lukija.nextLine();
-        Profiili ladattavaProfiili = new Profiili(rivi.toLowerCase());
+        Profiili ladattavaProfiili = new Profiili(rivi);
         
-        while (lukija.hasNextLine()) {
-            rivi = lukija.nextLine();
-            String[] tiedot = rivi.split("-");
-            PelattuKartta k = new PelattuKartta(Kartta.valueOf(tiedot[0]),
-            Integer.parseInt(tiedot[1]), Integer.parseInt(tiedot[2]), 
-            Integer.parseInt(tiedot[3]), Integer.parseInt(tiedot[4]));
-            ladattavaProfiili.lisaaKartta(k);
+        if (lukija.hasNextLine()) {
+        
+            while (lukija.hasNextLine()) {
+                rivi = lukija.nextLine();
+                String[] tiedot = rivi.split("-");
+                PelattuKartta k = new PelattuKartta(Kartta.valueOf(tiedot[0]),
+                Integer.parseInt(tiedot[1]), Integer.parseInt(tiedot[2]), 
+                Integer.parseInt(tiedot[3]), Integer.parseInt(tiedot[4]));
+                ladattavaProfiili.lisaaKartta(k);
+            }
+            lukija.close();
         }
-        lukija.close();
-        return ladattavaProfiili;
+            return ladattavaProfiili;
     }   
     
     

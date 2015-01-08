@@ -11,17 +11,24 @@ public class NakymaHallitsija {
     private ProfiiliHallinta profhal;
     private Container nykyinengrafiikka;
     private String nykyinenProfiili;
-
-    public NakymaHallitsija(ProfiiliHallinta profhal) {
+    private GraafinenKayttoliittyma gkl;
+    
+    public NakymaHallitsija() {
+    }
+    
+    public void setProfiilinHallinta(ProfiiliHallinta profhal) {
         this.profhal = profhal;
-        
+    }
+    
+    public void setGkl(GraafinenKayttoliittyma gkl) {
+        this.gkl = gkl;
     }
     
     public void profiiliLatausNakyma() throws Exception {
         ArrayList<String> profiilit = profhal.getProfiilit();
         System.out.println(profiilit);
         
-        ProfiiliLatausNakyma pln = new ProfiiliLatausNakyma(profiilit);
+        ProfiiliLatausNakyma pln = new ProfiiliLatausNakyma(profiilit, this);
         nykyinengrafiikka = pln.luoKomponentit();
     }
     
@@ -29,14 +36,16 @@ public class NakymaHallitsija {
         return this.nykyinengrafiikka;
     }
     
-    public void profiiliNakyma(Profiili profiili) throws Exception {
-        this.profhal = new ProfiiliHallinta();
-        profiili = profhal.lataaProfiili(profiili.getNimi());
+    public void profiiliNakyma(String profiilinNimi) throws Exception {
+        Profiili profiili = profhal.lataaProfiili(profiilinNimi);
         ProfiiliAnalyysi profana = new ProfiiliAnalyysi(profiili);
-        profana.luoYhtTapotKuolematVoitotHaviot();
         
         ProfiiliNakyma pn = new ProfiiliNakyma(profana, this);
         this.nykyinengrafiikka = pn.luoKomponentit();
+    }
+    
+    public void paivitaGui(Container container) {
+        gkl.paivita(container);
     }
     
         

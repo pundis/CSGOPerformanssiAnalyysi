@@ -11,6 +11,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+/**
+ * luo profiililatausnäkymän  
+ * @author fuksi
+ */
 public class ProfiiliLatausNakyma implements Nakyma {
 
     private ArrayList<String> profiilit;
@@ -23,6 +27,10 @@ public class ProfiiliLatausNakyma implements Nakyma {
         this.pnkk = new ProfiiliLatausNakymaKlikkaustenKuuntelija(nh);
     }
     
+    /**
+     * palauttaa containerin jossa profiilinäkymän komponentit
+     * @return 
+     */
     @Override
     public Container luoKomponentit() {
         Container container = new Container();

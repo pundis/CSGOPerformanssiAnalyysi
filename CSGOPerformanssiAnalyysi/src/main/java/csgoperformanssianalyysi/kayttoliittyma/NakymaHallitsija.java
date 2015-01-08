@@ -6,6 +6,12 @@ import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 import java.awt.Container;
 import java.util.ArrayList;
 
+
+/**
+ * hallinnoi graafista käyttöliittymää kertomalla sille mikä näkymä piirretään
+ * @author fuksi
+ */
+
 public class NakymaHallitsija {
 
     private ProfiiliHallinta profhal;
@@ -24,6 +30,10 @@ public class NakymaHallitsija {
         this.gkl = gkl;
     }
     
+    /**
+     * valmistele profiililatausnäkymän
+     * @throws Exception 
+     */
     public void profiiliLatausNakyma() throws Exception {
         ArrayList<String> profiilit = profhal.getProfiilit();
         System.out.println(profiilit);
@@ -36,6 +46,11 @@ public class NakymaHallitsija {
         return this.nykyinengrafiikka;
     }
     
+    /**
+     * valmistelee profiilinäkymän parametrinä syötetystä profiilinimestä
+     * @param profiilinNimi
+     * @throws Exception 
+     */
     public void profiiliNakyma(String profiilinNimi) throws Exception {
         Profiili profiili = profhal.lataaProfiili(profiilinNimi);
         ProfiiliAnalyysi profana = new ProfiiliAnalyysi(profiili);
@@ -44,6 +59,11 @@ public class NakymaHallitsija {
         this.nykyinengrafiikka = pn.luoKomponentit();
     }
     
+    
+    /**
+     * päivittää graafiselle käyttöliittymälle sen hetkisen grafiikan
+     * @param container 
+     */
     public void paivitaGui(Container container) {
         gkl.paivita(container);
     }

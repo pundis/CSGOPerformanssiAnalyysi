@@ -17,6 +17,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+/**
+ * konfiguroi napit profiilinakymalle
+ * @author fuksi
+ */
+
 public class ProfiiliNakymaKlikkaustenKuuntelija implements ActionListener {
     
     private Profiili profiili;

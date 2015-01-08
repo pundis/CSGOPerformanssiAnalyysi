@@ -33,6 +33,11 @@ public class GraafinenKayttoliittyma implements Runnable {
         frame.setVisible(true);
     }
     
+    
+    /**
+     * päivittää GUI:n parametristä saadulla containerilla ja piirtää uudestaan
+     * @param container 
+     */
     public void paivita(Container container) {
         frame.getContentPane().removeAll();
         frame.setContentPane(container);

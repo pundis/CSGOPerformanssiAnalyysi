@@ -16,6 +16,10 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * valmistelee komponentit profiilinäkymälle
+ * @author fuksi
+ */
 public class ProfiiliNakyma implements Nakyma {
     
     private ProfiiliAnalyysi profana;

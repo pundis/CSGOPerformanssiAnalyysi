@@ -6,8 +6,6 @@ import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  * konfiguroi komennot profiililatausnäkymän napeille
@@ -32,6 +30,7 @@ public class ProfiiliLatausNakymaKlikkaustenKuuntelija implements ActionListener
                 Container container = nh.nykyinenNakyma();
                 nh.paivitaGui(container);
             } catch (Exception ex) {
+                System.out.println("Profiilin lataus ei onnistunut, tarkista tekstitiedostojen sijainti");
             }
         } else  if (ae.getActionCommand().equals("Luo uusi profiili")) {
             ladattava = JOptionPane.showInputDialog("Profiilin nimi", null);
@@ -42,6 +41,7 @@ public class ProfiiliLatausNakymaKlikkaustenKuuntelija implements ActionListener
                     Container container = nh.nykyinenNakyma();
                     nh.paivitaGui(container);
                 } catch (Exception ex) {
+                    System.out.println("Profiilin lataus ei onnistunut, tarkista tekstitiedostojen sijainti");
                 }
             }
         } else {

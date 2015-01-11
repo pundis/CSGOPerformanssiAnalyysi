@@ -2,11 +2,7 @@ package csgoperformanssianalyysi.kayttoliittyma;
 
 import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JRadioButton;
 import javax.swing.WindowConstants;
 
 public class GraafinenKayttoliittyma implements Runnable {

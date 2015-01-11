@@ -2,7 +2,6 @@ package csgoperformanssianalyysi;
 
 import csgoperformanssianalyysi.kayttoliittyma.GraafinenKayttoliittyma;
 import csgoperformanssianalyysi.kayttoliittyma.NakymaHallitsija;
-import csgoperformanssianalyysi.logiikka.Profiili;
 import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 
 public class Paaohjelma {
@@ -16,8 +15,6 @@ public class Paaohjelma {
         ProfiiliHallinta ph = new ProfiiliHallinta();
         nh.setProfiilinHallinta(ph);
         nh.profiiliLatausNakyma();
-//        Profiili profiili = new Profiili("Juuso");
-//        nh.profiiliNakyma(profiili.getNimi());
         gkl.run();
     }
     

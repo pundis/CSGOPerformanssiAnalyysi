@@ -1,8 +1,6 @@
 
 package csgoperformanssianalyysi.logiikka;
 
-import java.text.DecimalFormat;
-
 /**
  * analysoi konstruktorin parametrinä saadun profiili olion karttoja sekä niiden
  * statistiikkoja

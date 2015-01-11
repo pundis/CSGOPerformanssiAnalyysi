@@ -4,7 +4,6 @@ import csgoperformanssianalyysi.logiikka.Kartta;
 import csgoperformanssianalyysi.logiikka.PelattuKartta;
 import csgoperformanssianalyysi.logiikka.Profiili;
 import csgoperformanssianalyysi.logiikka.ProfiiliAnalyysi;
-import csgoperformanssianalyysi.tietokanta.ProfiiliHallinta;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
@@ -97,7 +96,7 @@ public class ProfiiliNakyma implements Nakyma {
     
     public JPanel luoYleisKatsaus() {
         JPanel yleiskatsaus = new JPanel(new GridLayout(1, 5));
-        JPanel yleiskatsaus2 = new JPanel (new GridLayout(1, 5));
+        JPanel yleiskatsaus2 = new JPanel(new GridLayout(1, 5));
         
         String pnimi = prof.getNimi();
         JLabel nimi = new JLabel(pnimi.substring(0, 1).toUpperCase() + pnimi.substring(1));

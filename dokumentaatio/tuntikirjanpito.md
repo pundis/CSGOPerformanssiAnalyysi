@@ -10,3 +10,4 @@
 8. GKL toteutusta 4h (5.1)
 9. GKL suttaus ja uudelleenaloitus :) (6.1)
 10. 7.1 GKL Juurtoa 15.5h (7.1)
+11. DL6 viimeistelyt 4h (11.1)

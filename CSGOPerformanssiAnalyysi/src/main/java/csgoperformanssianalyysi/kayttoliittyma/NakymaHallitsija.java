@@ -36,7 +36,6 @@ public class NakymaHallitsija {
      */
     public void profiiliLatausNakyma() throws Exception {
         ArrayList<String> profiilit = profhal.getProfiilit();
-        System.out.println(profiilit);
         
         ProfiiliLatausNakyma pln = new ProfiiliLatausNakyma(profiilit, this);
         nykyinengrafiikka = pln.luoKomponentit();
